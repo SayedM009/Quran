@@ -1,0 +1,47 @@
+:root {
+  --primary-color: #58ca6f;
+  --secondary-color: #0d2913;
+  --accent-color: #c6ff00;
+  --mainBackground-color: #aad0b2;
+}
+body {
+  background-color: var(--mainBackground-color);
+  color: var(--secondary-color);
+  font-family: "Poppins";
+}
+
+.navbar,
+aside,
+.app__body section,
+.app__footer > div {
+  background-color: var(--primary-color) !important;
+  border-radius: 2rem;
+}
+
+.app__body {
+  height: 83vh;
+}
+
+svg {
+  width: 24px;
+}
+
+.channel {
+  background-color: var(--accent-color);
+  display: inline;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.reader {
+  width: 60px;
+  height: 60px;
+}
+
+.active {
+  background-color: var(--secondary-color) !important;
+  color: var(--accent-color);
+}
