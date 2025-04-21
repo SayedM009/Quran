@@ -1,3 +1,4 @@
+/* Main rules */
 :root {
   --primary-color: #58ca6f;
   --secondary-color: #0d2913;
@@ -10,6 +11,10 @@ body {
   font-family: "Poppins";
 }
 
+svg {
+  width: 24px;
+}
+
 .navbar,
 aside,
 .app__body section,
@@ -18,15 +23,29 @@ aside,
   border-radius: 2rem;
 }
 
+/* Navbar select language*/
+.form-select {
+  --bs-form-select-bg-img: none;
+  width: 72px !important;
+}
+.form-select:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Application body */
+
 .app__body {
-  height: 83vh;
+  height: 82vh;
 }
 
-svg {
-  width: 24px;
+/* Application body aside */
+aside {
+  transition: 0.3s;
 }
-
-.channel {
+.channel__icon,
+.user__icon,
+.settings__icon {
   background-color: var(--accent-color);
   display: inline;
   border-radius: 50%;
@@ -36,12 +55,50 @@ svg {
   justify-content: center;
 }
 
-.reader {
-  width: 60px;
-  height: 60px;
-}
-
 .active {
   background-color: var(--secondary-color) !important;
   color: var(--accent-color);
 }
+
+.channel__title,
+.user__title,
+.settings__title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.hide {
+  display: none;
+}
+
+.tab.active span.title {
+  display: block;
+}
+
+.data__suwar {
+  width: 100px !important;
+}
+/* Application footer */
+
+.reader {
+  width: 69px;
+  height: 69px;
+}
+
+.select2-container--default .select2-selection--single {
+  font-size: 14px;
+}
+
+/* السهم */
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__arrow {
+  height: 30px !important;
+}
+
+/* .select2-results__option {
+  text-align: right;
+}
+.select2-selection__rendered {
+  text-align: right;
+} */
