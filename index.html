@@ -42,8 +42,18 @@
       integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
       crossorigin="anonymous"
     ></script>
+    <!-- Get Channels Module -->
+    <script defer type="module" src="src/js/getChannels.js"></script>
+    <!-- Extend Aside -->
+    <script defer type="module" src="src/js/extendAside.js"></script>
+    <!-- Translation -->
+    <script defer type="module" src="src/js/translation.js"></script>
+    <!-- Get Suwar Module -->
+    <script defer type="module" src="src/js/getSuwar.js"></script>
+    <!-- Get Suwar Module -->
+    <script defer type="module" src="src/js/getReciter.js"></script>
     <!-- Main JavaScript file -->
-    <script defer src="src/js/main.js"></script>
+    <script defer type="module" src="src/js/main.js"></script>
   </head>
   <body class="py-2">
     <main>
@@ -70,7 +80,10 @@
           >
             <ul class="top__part list-unstyled d-flex flex-column gap-2 p-0">
               <li class="d-flex align-items-center gap-2">
-                <span class="channel__icon tab active">
+                <span
+                  class="channel__icon tab active"
+                  data-class="data__reciters"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -91,7 +104,7 @@
                 >
               </li>
               <li class="d-flex align-items-center gap-2">
-                <span class="channel__icon tab">
+                <span class="channel__icon tab" data-class="data__radio">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -114,7 +127,7 @@
             </ul>
             <ul class="bottom__part list-unstyled d-flex flex-column gap-2 p-0">
               <li class="d-flex align-items-center gap-2">
-                <span class="user__icon tab">
+                <span class="user__icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -133,7 +146,7 @@
                 <span class="user__title hide title" data-id="user">User</span>
               </li>
               <li class="d-flex align-items-center gap-2">
-                <span class="settings__icon tab">
+                <span class="settings__icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -162,7 +175,7 @@
           </aside>
           <section class="data__section col p-4">
             <!-- Reciters -->
-            <div class="data__reciters">
+            <div class="data__reciters data d-none">
               <div class="data__suwar--list row mb-3 align-items-center">
                 <div class="col">
                   <h5 class="data__suwar--title fw-bold" data-id="suwar">
@@ -196,8 +209,56 @@
                 </div>
               </div>
             </div>
+            <!-- Radio -->
+            <div class="data__radio data">
+              <div class="data__channel row mb-3">
+                <div class="col">
+                  <h5 class="fw-bold" data-id="channel">Channel</h5>
+                </div>
 
-            <div class="data__reciters--list"></div>
+                <div>
+                  <select
+                    class="form-select select2 data__channel--list"
+                    name=""
+                    id=""
+                  ></select>
+                </div>
+              </div>
+              <hr />
+              <div class="data__channel-cards row align-items-center">
+                <div
+                  id="carouselExample"
+                  class="carousel slide"
+                  data-bs-touch="true"
+                >
+                  <div class="carousel-inner"></div>
+                  <button
+                    class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#carouselExample"
+                    data-bs-slide="prev"
+                  >
+                    <span
+                      class="carousel-control-prev-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button
+                    class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#carouselExample"
+                    data-bs-slide="next"
+                  >
+                    <span
+                      class="carousel-control-next-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              </div>
+            </div>
           </section>
         </div>
         <!-- Application footer -->
