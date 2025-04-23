@@ -1,0 +1,90 @@
+:root {
+  --primary-color: #58ca6f;
+  --secondary-color: #0d2913;
+  --accent-color: #c6ff00;
+  --mainBackground-color: #aad0b2;
+  --direction: ltr;
+}
+
+* {
+  direction: var(--direction);
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--mainBackground-color);
+  color: var(--secondary-color);
+  font-family: Poppins;
+}
+
+.container {
+  height: calc(100vh - 2rem);
+}
+
+svg {
+  width: 24px;
+}
+
+.navbar, aside, .app__body section, .app__footer > div {
+  border-radius: 2rem;
+  background-color: var(--primary-color) !important;
+}
+
+.form-select {
+  --bs-form-select-bg-img: none;
+  width: 72px !important;
+}
+
+.form-select:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+aside {
+  transition: all .3s;
+}
+
+.channel__icon, .user__icon, .settings__icon {
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  display: flex;
+}
+
+.tab.active {
+  color: var(--accent-color);
+  background-color: var(--secondary-color) !important;
+}
+
+.channel__title, .user__title, .settings__title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.hide {
+  display: none;
+}
+
+.tab.active span.title {
+  display: block;
+}
+
+.data__suwar {
+  width: 100px !important;
+}
+
+.reader {
+  width: 69px;
+  height: 69px;
+}
+
+.select2-container--default .select2-selection--single {
+  font-size: 14px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 30px !important;
+}
+/*# sourceMappingURL=Quran.77a9bc14.css.map */

@@ -9,12 +9,16 @@
 
 * {
   direction: var(--direction);
+  box-sizing: border-box;
 }
 body {
   background-color: var(--mainBackground-color);
   color: var(--secondary-color);
   font-family: "Poppins";
-  overflow: scroll;
+}
+
+.container {
+  height: calc(100vh - 2rem);
 }
 
 svg {
@@ -40,10 +44,6 @@ aside,
 }
 
 /* Application body */
-
-.app__body {
-  height: 82vh;
-}
 
 /* Application body aside */
 aside {

@@ -1,4 +1,5 @@
 const selectreciter = document.querySelector(".data__reciters--list--x");
+
 export function getReciter(lang) {
   const finalLng = lang === "en" ? "eng" : "ar";
   fetch(`https://mp3quran.net/api/v3/radios?language=${finalLng}`)

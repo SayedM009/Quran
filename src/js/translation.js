@@ -1,11 +1,11 @@
 import { getSuwar } from "./getSuwar.js";
 import { getReciter } from "./getReciter.js";
 import { getChannels } from "./getChannels.js";
-export { selectLanguage, logo, translation, changeLang };
 
-const selectLanguage = document.querySelector(".form-select");
+const selectLanguage = document.querySelector(".changeLang");
 const logo = document.querySelector(".navbar-brand");
-const translation = {
+
+const translations = {
   en: {
     fontFamily: "Poppins",
     dir: "ltr",
@@ -42,15 +42,15 @@ selectLanguage.addEventListener("change", () =>
 function changeLang(lang) {
   document.documentElement.style.setProperty(
     "--direction",
-    translation[lang].dir
+    translations[lang]?.dir
   );
-  document.body.style.fontFamily = translation[lang].fontFamily;
-  document.body.dir = translation[lang].dir;
-  document.title = translation[lang].title;
-  logo.textContent = translation[lang].logo;
+  document.body.style.fontFamily = translations[lang].fontFamily;
+  document.body.dir = translations[lang].dir;
+  document.title = translations[lang].title;
+  logo.textContent = translations[lang].logo;
 
   document.querySelectorAll("[data-id]").forEach((ele) => {
-    ele.textContent = translation[lang][ele.dataset.id];
+    ele.textContent = translations[lang][ele.dataset.id];
   });
 
   localStorage.setItem("lang", lang);
@@ -58,3 +58,5 @@ function changeLang(lang) {
   getReciter(lang);
   getChannels(lang);
 }
+
+export { translations, selectLanguage, logo, changeLang };

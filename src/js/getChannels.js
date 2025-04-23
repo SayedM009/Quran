@@ -19,7 +19,9 @@ export function getChannels(lang) {
           "beforeend",
           `<div class="carousel-item px-4 mb-0 ${
             i === 0 ? "active" : ""
-          }" data-channel="${channel.name}">
+          }" data-channelName="${channel.name}" data-channelURL="${
+            channel.url
+          }">
             <h6 class="text-center mb-0" style="font-size:10px;">${
               channel.name
             }</h6>
