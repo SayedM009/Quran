@@ -34,13 +34,16 @@ const translation = {
 };
 
 // Swtich the Language Event
-selectLanguage.addEventListener("change", () => {
-  console.log(selectLanguage.value);
-  changeLang(selectLanguage.value);
-});
+selectLanguage.addEventListener("change", () =>
+  changeLang(selectLanguage.value)
+);
 
 // Change Lanuage Function
 function changeLang(lang) {
+  document.documentElement.style.setProperty(
+    "--direction",
+    translation[lang].dir
+  );
   document.body.style.fontFamily = translation[lang].fontFamily;
   document.body.dir = translation[lang].dir;
   document.title = translation[lang].title;

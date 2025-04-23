@@ -1,23 +1,26 @@
 const selectChannel = document.querySelector(".data__channel--list");
-const text = document.querySelector(".carousel-inner");
+const carouselChannels = document.querySelector(".carousel-inner");
+const myCarousel = document.getElementById("carouselExample");
+
 export function getChannels(lang) {
   const finalLng = lang === "en" ? "eng" : "ar";
   return fetch(`https://mp3quran.net/api/v3/radios?language=${finalLng}`)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       if (!selectChannel) return;
       selectChannel.innerHTML = "";
+      carouselChannels.innerHTML = "";
       data.radios.forEach((channel, i) => {
-        console.log(i);
         selectChannel.insertAdjacentHTML(
           "beforeend",
           `<option class="fw-bold" value="${channel.name}">${channel.name}</option>`
         );
-        text.insertAdjacentHTML(
+        carouselChannels.insertAdjacentHTML(
           "beforeend",
-          `<div class="carousel-item px-5 ${i === 0 ? "active" : ""}">
-            <h6 style="font-size:14px; text-align:center; mb-0">${
+          `<div class="carousel-item px-4 mb-0 ${
+            i === 0 ? "active" : ""
+          }" data-channel="${channel.name}">
+            <h6 class="text-center mb-0" style="font-size:10px;">${
               channel.name
             }</h6>
           </div>`
@@ -26,3 +29,13 @@ export function getChannels(lang) {
       return data;
     });
 }
+
+myCarousel.addEventListener("slide.bs.carousel", (event) => {
+  const channelName = event.relatedTarget.children[0].textContent;
+  // Set the select element value to channel name
+  selectChannel.value = channelName;
+  // Set the showen selected element to channel name
+  document.querySelector(
+    ".data__channel--list + span .select2-selection__rendered"
+  ).innerHTML = channelName;
+});

@@ -22,3 +22,15 @@ document.addEventListener("DOMContentLoaded", function () {
   // 8. Get all radio channels
   getChannels(lang);
 });
+console.log();
+const x = parseFloat(
+  getComputedStyle(document.querySelector(".navbar")).height
+);
+const y = parseFloat(
+  getComputedStyle(document.querySelector(".app__footer")).height
+);
+
+const z = x + y;
+
+console.log(z);
+document.querySelector(".app__body").style.height = `calc(100vh - ${z}px)`;

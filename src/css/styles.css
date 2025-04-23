@@ -4,6 +4,11 @@
   --secondary-color: #0d2913;
   --accent-color: #c6ff00;
   --mainBackground-color: #aad0b2;
+  --direction: ltr;
+}
+
+* {
+  direction: var(--direction);
 }
 body {
   background-color: var(--mainBackground-color);
