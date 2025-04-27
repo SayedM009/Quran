@@ -669,18 +669,64 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"jOC7R":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "translations", ()=>translations);
-parcelHelpers.export(exports, "selectLanguage", ()=>selectLanguage);
-parcelHelpers.export(exports, "logo", ()=>logo);
 parcelHelpers.export(exports, "changeLang", ()=>changeLang);
-var _getSuwarJs = require("./getSuwar.js");
-var _getReciterJs = require("./getReciter.js");
-var _getChannelsJs = require("./getChannels.js");
+parcelHelpers.export(exports, "selectLanguage", ()=>selectLanguage);
+var _translationsDataJs = require("./translations-data.js");
 const selectLanguage = document.querySelector(".changeLang");
 const logo = document.querySelector(".navbar-brand");
+// Change Language Function
+function changeLang(lang) {
+    document.documentElement.style.setProperty("--direction", (0, _translationsDataJs.translations)[lang]?.dir);
+    document.body.style.fontFamily = (0, _translationsDataJs.translations)[lang].fontFamily;
+    document.body.dir = (0, _translationsDataJs.translations)[lang].dir;
+    document.title = (0, _translationsDataJs.translations)[lang].title;
+    logo.textContent = (0, _translationsDataJs.translations)[lang].logo;
+    // Get all elements to translate them based on the current language
+    document.querySelectorAll("[data-id]").forEach((ele)=>{
+        ele.textContent = (0, _translationsDataJs.translations)[lang][ele.dataset.id];
+    });
+    localStorage.setItem("lang", lang);
+    // We'll update content based on language in a non-circular way
+    updateContentBasedOnLanguage(lang);
+}
+// Separate function to update content based on language
+function updateContentBasedOnLanguage(lang) {
+    // Import these functions dynamically to avoid circular dependencies
+    require("a8f8bda9171d37f").then((module)=>{
+        const getSuwar = module.getSuwar;
+        document.querySelectorAll(".tab").forEach((tab)=>{
+            if (tab.getAttribute("data-class") == "data__reciters" && tab.classList.contains("active")) getSuwar(lang);
+        });
+    });
+    require("6f949321f4ee2d70").then((module)=>{
+        const getPages = module.getPages;
+        document.querySelectorAll(".tab").forEach((tab)=>{
+            if (tab.getAttribute("data-class") == "data__reciters" && tab.classList.contains("active")) getPages();
+        });
+    });
+    require("a8a512da12f43f69").then((module)=>{
+        const getReciter = module.getReciter;
+        document.querySelectorAll(".tab").forEach((tab)=>{
+            if (tab.getAttribute("data-class") == "data__reciters" && tab.classList.contains("active")) getReciter(lang);
+        });
+    });
+    require("39605292fe856267").then((module)=>{
+        const { getChannels, selectChannel, carouselChannels } = module;
+        document.querySelectorAll(".tab").forEach((tab)=>{
+            if (tab.getAttribute("data-class") == "data__radio" && tab.classList.contains("active")) getChannels(lang, selectChannel, carouselChannels);
+        });
+    });
+}
+// Switch the Language Event
+selectLanguage.addEventListener("change", ()=>changeLang(selectLanguage.value));
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","./translations-data.js":"hUsij","a8f8bda9171d37f":"Qlerf","a8a512da12f43f69":"kjI7r","39605292fe856267":"hnr6K","6f949321f4ee2d70":"7ZEoY"}],"hUsij":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "translations", ()=>translations);
 const translations = {
     en: {
-        fontFamily: "Poppins",
+        fontFamily: "Inter",
         dir: "ltr",
         title: "Quran",
         logo: "Quran",
@@ -689,7 +735,8 @@ const translations = {
         user: "User",
         settings: "Settings",
         suwar: "Suwar",
-        channel: "Channel"
+        channel: "Channel",
+        close: "Close"
     },
     ar: {
         fontFamily: "Tajawal",
@@ -701,27 +748,23 @@ const translations = {
         user: "\u0645\u0633\u062A\u062E\u062F\u0645",
         settings: "\u0627\u0644\u0625\u0639\u062F\u0627\u062F\u0627\u062A",
         suwar: "\u0627\u0644\u0633\u0648\u0631",
-        channel: "\u0627\u0644\u0645\u062D\u0637\u0629"
+        channel: "\u0627\u0644\u0645\u062D\u0637\u0629",
+        close: "\u0625\u063A\u0644\u0627\u0642"
     }
 };
-// Swtich the Language Event
-selectLanguage.addEventListener("change", ()=>changeLang(selectLanguage.value));
-// Change Lanuage Function
-function changeLang(lang) {
-    document.documentElement.style.setProperty("--direction", translations[lang]?.dir);
-    document.body.style.fontFamily = translations[lang].fontFamily;
-    document.body.dir = translations[lang].dir;
-    document.title = translations[lang].title;
-    logo.textContent = translations[lang].logo;
-    document.querySelectorAll("[data-id]").forEach((ele)=>{
-        ele.textContent = translations[lang][ele.dataset.id];
-    });
-    localStorage.setItem("lang", lang);
-    (0, _getSuwarJs.getSuwar)(lang);
-    (0, _getReciterJs.getReciter)(lang);
-    (0, _getChannelsJs.getChannels)(lang);
-}
 
-},{"./getSuwar.js":"4VaiR","./getReciter.js":"7bSPa","./getChannels.js":"89AEk","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["lXi7K","jOC7R"], "jOC7R", "parcelRequirefab8", {})
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"Qlerf":[function(require,module,exports,__globalThis) {
+module.exports = import("./getSuwar.8cbc4e94.js").then(()=>module.bundle.root('4VaiR'));
+
+},{"4VaiR":"4VaiR"}],"kjI7r":[function(require,module,exports,__globalThis) {
+module.exports = import("./getReciter.5914cc20.js").then(()=>module.bundle.root('7bSPa'));
+
+},{"7bSPa":"7bSPa"}],"hnr6K":[function(require,module,exports,__globalThis) {
+module.exports = Promise.resolve(module.bundle.root("89AEk"));
+
+},{"89AEk":"89AEk"}],"7ZEoY":[function(require,module,exports,__globalThis) {
+module.exports = import("./PagesOfSwrah.99687e1f.js").then(()=>module.bundle.root('du8rL'));
+
+},{"du8rL":"du8rL"}]},["lXi7K","jOC7R"], "jOC7R", "parcelRequirefab8", {})
 
 //# sourceMappingURL=Quran.7f1603cc.js.map

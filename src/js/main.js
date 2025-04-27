@@ -1,6 +1,4 @@
-import { getSuwar } from "./getSuwar.js";
-import { getReciter } from "./getReciter.js";
-import { getChannels } from "./getChannels.js";
+// main.js or index.js
 import { changeLang, selectLanguage } from "./translation.js";
 
 // Get the Save Language from Local Storage and Set it
@@ -8,18 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const lang = localStorage.getItem("lang") || "en";
   // 1. Check if there is not lang will return without any action
   if (!lang) return;
-  // 2. Calling changeLang function to reset the page to be suitable for any languge
+  // 2. Calling changeLang function to reset the page to be suitable for any language
   changeLang(lang);
-  // 3. Fetching the Suwar depends on the saved language in local storage
-  getSuwar(lang);
-  // 4. Fetching the Reciter depends on the saved language in local storage
-  getReciter(lang);
-  // 5. Set the saved language as the selected language in selecte language element
+  // 3. Set the saved language as the selected language
   selectLanguage.value = lang;
-  // 6. Get all suwar from the API
-  getSuwar(lang);
-  // 7. Get all  reciters from the API
-  getReciter(lang);
-  // 8. Get all radio channels
-  getChannels(lang);
 });

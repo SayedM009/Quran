@@ -2,7 +2,7 @@
   --primary-color: #58ca6f;
   --secondary-color: #0d2913;
   --accent-color: #c6ff00;
-  --mainBackground-color: #aad0b2;
+  --mainBackground-color: #111827;
   --direction: ltr;
 }
 
@@ -14,7 +14,7 @@
 body {
   background-color: var(--mainBackground-color);
   color: var(--secondary-color);
-  font-family: Poppins;
+  font-family: Inter, system-ui;
 }
 
 .container {
@@ -64,7 +64,7 @@ aside {
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 .tab.active span.title {
@@ -86,5 +86,40 @@ aside {
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
   height: 30px !important;
+}
+
+.pages__loader {
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  min-height: 21vh;
+  display: flex;
+}
+
+.pages__loader span {
+  background: #fff;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  animation: .5s ease-in-out infinite snake;
+  display: inline-block;
+}
+
+.pages__loader span:nth-of-type(2) {
+  animation-delay: .2s;
+}
+
+.pages__loader span:nth-of-type(3) {
+  animation-delay: .3s;
+}
+
+@keyframes snake {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
 }
 /*# sourceMappingURL=Quran.77a9bc14.css.map */

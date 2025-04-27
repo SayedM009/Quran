@@ -667,31 +667,19 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"lhpGb":[function(require,module,exports,__globalThis) {
-var _getSuwarJs = require("./getSuwar.js");
-var _getReciterJs = require("./getReciter.js");
-var _getChannelsJs = require("./getChannels.js");
+// main.js or index.js
 var _translationJs = require("./translation.js");
 // Get the Save Language from Local Storage and Set it
 document.addEventListener("DOMContentLoaded", function() {
     const lang = localStorage.getItem("lang") || "en";
     // 1. Check if there is not lang will return without any action
     if (!lang) return;
-    // 2. Calling changeLang function to reset the page to be suitable for any languge
+    // 2. Calling changeLang function to reset the page to be suitable for any language
     (0, _translationJs.changeLang)(lang);
-    // 3. Fetching the Suwar depends on the saved language in local storage
-    (0, _getSuwarJs.getSuwar)(lang);
-    // 4. Fetching the Reciter depends on the saved language in local storage
-    (0, _getReciterJs.getReciter)(lang);
-    // 5. Set the saved language as the selected language in selecte language element
+    // 3. Set the saved language as the selected language
     (0, _translationJs.selectLanguage).value = lang;
-    // 6. Get all suwar from the API
-    (0, _getSuwarJs.getSuwar)(lang);
-    // 7. Get all  reciters from the API
-    (0, _getReciterJs.getReciter)(lang);
-    // 8. Get all radio channels
-    (0, _getChannelsJs.getChannels)(lang);
 });
 
-},{"./getSuwar.js":"4VaiR","./getReciter.js":"7bSPa","./translation.js":"jOC7R","./getChannels.js":"89AEk"}]},["93v64","lhpGb"], "lhpGb", "parcelRequirefab8", {})
+},{"./translation.js":"jOC7R"}]},["93v64","lhpGb"], "lhpGb", "parcelRequirefab8", {})
 
 //# sourceMappingURL=Quran.b828852a.js.map

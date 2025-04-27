@@ -160,11 +160,11 @@
       });
     }
   }
-})({"lQMj0":[function(require,module,exports,__globalThis) {
+})({"4VCTP":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
-var HMR_SERVER_PORT = 1234;
+var HMR_SERVER_PORT = 56302;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "439701173a9199ea";
 var HMR_USE_SSE = false;
@@ -669,22 +669,6 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"4VaiR":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-// export function getSuwar(lang) {
-//   const finalLng = lang === "en" ? "eng" : "ar";
-//   return fetch(`https://mp3quran.net/api/v3/suwar?language=${finalLng}`)
-//     .then((res) => res.json())
-//     .then((data) => {
-//       if (!selectsurah) return;
-//       selectsurah.innerHTML = "";
-//       data.suwar.forEach((swrah) => {
-//         selectsurah.insertAdjacentHTML(
-//           "beforeend",
-//           `<option class="fw-bold" value="${swrah.name}">${swrah.name}</option>`
-//         );
-//       });
-//       return data;
-//     });
-// }
 parcelHelpers.export(exports, "getSuwar", ()=>getSuwar);
 const selectsurah = document.querySelector(".data__suwar");
 async function getSuwar(lang) {
@@ -701,6 +685,6 @@ async function getSuwar(lang) {
     });
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["lQMj0","4VaiR"], "4VaiR", "parcelRequirefab8", {})
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["4VCTP","4VaiR"], "4VaiR", "parcelRequirefab8", {})
 
 //# sourceMappingURL=Quran.8cbc4e94.js.map
