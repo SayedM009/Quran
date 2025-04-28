@@ -89,11 +89,16 @@ aside {
 }
 
 .pages__loader {
+  z-index: 99999;
   justify-content: center;
   align-items: center;
   gap: 5px;
   min-height: 21vh;
   display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .pages__loader span {

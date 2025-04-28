@@ -707,8 +707,9 @@ async function getReciter(lang) {
 function injectValuestoRiciterSelectEle(values) {
     if (!selectreciter) return;
     selectreciter.innerHTML = "";
+    selectreciter.insertAdjacentHTML("beforeend", `<option class="fw-bold" selected">${localStorage.getItem("lang") === "en" ? "Select Reciter" : "\u0625\u062E\u062A\u0631 \u0642\u0627\u0631\u064A\u0652"}</option>`);
     values.forEach((reciter)=>{
-        selectreciter.insertAdjacentHTML("beforeend", `<option class="fw-bold" value="${reciter.name}">${reciter.name}</option>`);
+        selectreciter.insertAdjacentHTML("beforeend", `<option class="fw-bold" value="${reciter.name} ${reciter.moshaf[0].server}">${reciter.name}</option>`);
     });
 }
 

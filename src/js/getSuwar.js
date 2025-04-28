@@ -11,11 +11,12 @@ export async function getSuwar(lang) {
   if (!data || !data.suwar) return;
   if (!selectsurah) return;
   selectsurah.innerHTML = "";
+
   // 3. Display Suwar in DOM
   data.suwar.forEach((swrah) => {
     selectsurah.insertAdjacentHTML(
       "beforeend",
-      `<option class="fw-bold" value="${swrah.name}">${swrah.name}</option>`
+      `<option class="fw-bold" value="${swrah.name} ${swrah.id}">${swrah.name} </option>`
     );
   });
 }

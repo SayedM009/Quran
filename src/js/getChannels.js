@@ -3,7 +3,7 @@ const selectChannel = document.querySelector(".data__channel--list");
 const carouselChannels = document.querySelector(".carousel-inner");
 const carouselPages = document.querySelector(".carousel-inner-pages");
 
-const myCarousel = document.getElementById("carouselExample");
+const myCarousel = document.getElementById("channel__carousel");
 
 // async function getChannels(language, selecteElement, carouselContainer) {
 //   try {
@@ -79,7 +79,7 @@ async function getChannels(language, selecteElement, carouselContainer) {
       // 6.inject radio channels into carousel body.
       carouselContainer.insertAdjacentHTML(
         "beforeend",
-        `<div class="carousel-item px-4 mb-0 ${
+        `<div class="carousel-item carousel-item-channel px-4 mb-0 ${
           i === 0 ? "active" : ""
         }" data-channelName="${channel.name}" data-channelURL="${channel.url}">
           <h6 class="text-center mb-0" style="font-size:10px;">${

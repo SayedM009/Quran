@@ -736,7 +736,8 @@ const translations = {
         settings: "Settings",
         suwar: "Suwar",
         channel: "Channel",
-        close: "Close"
+        close: "Close",
+        selectReciter: "Select Reciter"
     },
     ar: {
         fontFamily: "Tajawal",
@@ -749,7 +750,8 @@ const translations = {
         settings: "\u0627\u0644\u0625\u0639\u062F\u0627\u062F\u0627\u062A",
         suwar: "\u0627\u0644\u0633\u0648\u0631",
         channel: "\u0627\u0644\u0645\u062D\u0637\u0629",
-        close: "\u0625\u063A\u0644\u0627\u0642"
+        close: "\u0625\u063A\u0644\u0627\u0642",
+        selectReciter: "\u0625\u062E\u062A\u0631 \u0642\u0627\u0631\u0621\u0649"
     }
 };
 

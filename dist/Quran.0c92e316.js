@@ -678,7 +678,8 @@ aside.addEventListener("click", function(e) {
         // 1. Take control of UI for target tab and it's section
         tabsAndSectionUIControl(targetTab);
         // 2. Get all radio channels if the radio tab is active
-        if (targetTab.dataset.class === "data__radio") (0, _getChannelsJs.getChannels)(localStorage.getItem("lang") || "en", (0, _getChannelsJs.selectChannel), (0, _getChannelsJs.carouselChannels));
+        targetTab.dataset.class;
+        (0, _getChannelsJs.getChannels)(localStorage.getItem("lang") || "en", (0, _getChannelsJs.selectChannel), (0, _getChannelsJs.carouselChannels));
     // 8. Get all remaining services  if it's tab is active : such as 7.
     }
 });
@@ -702,6 +703,7 @@ function tabsAndSectionUIControl(tab) {
     // 5. Adding display none to all section
     document.querySelectorAll(".data").forEach((ele)=>ele.classList.add("d-none"));
     // 6. Removing display none from the target element
+    console.log(tab.dataset.class);
     document.querySelector(`.${tab.dataset.class}`).classList.remove("d-none");
 }
 

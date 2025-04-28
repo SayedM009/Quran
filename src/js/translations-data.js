@@ -11,6 +11,7 @@ export const translations = {
     suwar: "Suwar",
     channel: "Channel",
     close: "Close",
+    selectReciter: "Select Reciter",
   },
 
   ar: {
@@ -25,5 +26,6 @@ export const translations = {
     suwar: "السور",
     channel: "المحطة",
     close: "إغلاق",
+    selectReciter: "إختر قارءى",
   },
 };

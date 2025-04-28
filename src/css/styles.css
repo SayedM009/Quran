@@ -107,19 +107,18 @@ aside {
   height: 30px !important;
 }
 
-/* .select2-results__option {
-  text-align: right;
-}
-.select2-selection__rendered {
-  text-align: right;
-} */
-
+/* Loader of Suwar Pages */
 .pages__loader {
   min-height: 21vh;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99999;
 }
 
 .pages__loader span {
@@ -131,7 +130,6 @@ aside {
   animation: snake 0.5s infinite ease-in-out;
 }
 
-/* .pages__loader span:nth-of-type(1) */
 .pages__loader span:nth-of-type(2) {
   animation-delay: 0.2s;
 }

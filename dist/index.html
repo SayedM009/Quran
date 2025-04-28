@@ -7,7 +7,6 @@
     <!-- Ex -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
 
-    <!-- Ex -->
 
     <!-- Google font Tajawal for Arabic -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,8 +30,12 @@
     <link rel="stylesheet" href="/Quran.77a9bc14.css">
     <!-- Bootstrap JavaScript -->
     <script type="importmap">{"imports":{"1Q4iZ":"/ErrorModal.63a6616a.js","9H2qu":"/getSuwar.8cbc4e94.js","90z02":"/getReciter.5914cc20.js","sxztC":"/PagesOfSwrah.99687e1f.js"}}</script><script defer="" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <!-- Select 2 -->
+    <script defer="" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <!-- Get Pages of Swurah -->
-    <!-- <script defer type="module" src="src/js/PagesOfSwrah.js"></script> -->
+     <script type="module" src="/Quran.d841184a.js"></script>
     <!-- Get Channels Module -->
     <script defer="" type="module" src="/Quran.bd2d680c.js"></script>
     <!-- Extend Aside -->
@@ -132,21 +135,19 @@
               <hr>
               <!-- Suwar Pages -->
               <div class="data__swrah--pages row align-items-center my-4">
-                <div id="carouselExample" class="carousel slide" data-bs-touch="true">
-                  <div class="carousel-inner-pages">
-                    <div class="pages__loader d-none">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                  </div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <div id="carouselExample" class="carousel slide position-relative" data-bs-touch="true" dir="rtl">
+                  <div class="carousel-inner-pages" style="min-height: 350px"></div>
+              
+                  <!-- الزر اللي عاليمين: السابق -->
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
+                    <span class="visually-hidden">التالي</span>
                   </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              
+                  <!-- الزر اللي عالشمال: التالي -->
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
+                    <span class="visually-hidden">السابق</span>
                   </button>
                 </div>
               </div>
@@ -164,13 +165,13 @@
               </div>
               <hr>
               <div class="data__channel-cards row align-items-center my-4">
-                <div id="carouselExample" class="carousel slide" data-bs-touch="true">
+                <div id="channel__carousel" class="carousel slide" data-bs-touch="true">
                   <div class="carousel-inner"></div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                  <button class="carousel-control-prev" type="button" data-bs-target="#channel__carousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                   </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                  <button class="carousel-control-next" type="button" data-bs-target="#channel__carousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                   </button>
@@ -212,27 +213,7 @@
         </div>
       </section>
     </main>
-    <!-- Select2  -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script>$(document).ready(function() {
-    $(".select2").select2({
-        width: "100%"
-    });
-    $(".select2-results__options li").on("click", function(e) {
-        console.log(e);
-    });
-    $(".select2").on("change", function(e) {
-        // 1.Removing active class from all carousel items
-        document.querySelectorAll(".carousel-item").forEach((ele)=>{
-            ele.classList.remove("active");
-        });
-        // 2. Set the current value of the select element to the target ccarousel item
-        if (!document.querySelector(`[data-channelName="${e.target.value}"]`)) return;
-        document.querySelector(`[data-channelName="${e.target.value}"]`).classList.add("active");
-    });
-});
-
-</script>
+  
+    
   </body>
 </html>
